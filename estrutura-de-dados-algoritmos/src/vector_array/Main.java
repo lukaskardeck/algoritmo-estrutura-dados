@@ -8,13 +8,17 @@ public class Main {
 
         vetor.add("Elemento 1");
         vetor.add("Elemento 2");
-        vetor.add("Novo", 2);
-        vetor.add("Novo2", 1);
-        vetor.add("Elemento");
+        vetor.add("Elemento 3", 2);
+        vetor.add("Elemento 4", vetor.getSize());
+        vetor.add("Elemento 5");
+
 
         System.out.println(vetor);
-        vetor.printFull();
-
         System.out.println(vetor.getSize());
+
+        vetor.remove("Elemento 6");
+        System.out.println(vetor);
+        System.out.println(vetor.getSize());
+
     }
 }

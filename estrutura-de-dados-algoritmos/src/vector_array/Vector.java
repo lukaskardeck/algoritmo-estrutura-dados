@@ -15,22 +15,18 @@ public class Vector {
 
     // Adiciona um elemento no final da estrutura
     public void add(String element) {
-        if (getSize() < this.capacity) {
-            this.elements[getSize()] = element;
-            this.size++;
-        }
-        else {
-            throw new RuntimeException("O vetor já está preenchido");
-        }
+
+        if (getSize() == this.capacity) throw new RuntimeException("O vetor já está preenchido");
+
+        this.elements[getSize()] = element;
+        this.size++;
     }
 
     // Adiciona um elemento na posição indicada. Válido apenas para indices ja ocupados ou o primeiro indice após a ultima posição ocupada
     public void add(String element, int index) {
         if (getSize() < this.capacity) {
 
-            if (index > getSize() || index < 0) {
-                throw new RuntimeException("Invalid index");
-            }
+            if (index < 0 || index > getSize()) throw new RuntimeException("Invalid index");
 
             if (index < getSize()) {
                 for (int i = getSize(); i > index; i--) {
@@ -49,9 +45,8 @@ public class Vector {
 
     // Retorna um elemento pelo seu índice na estrutura
     public String getByIndex(int index) {
-        if (index < 0 || index >= getSize()) {
-            throw new IllegalArgumentException("Invalid index");
-        }
+        if (getSize() == 0) throw new RuntimeException("Empty vector");
+        if (index < 0 || index >= getSize()) throw new IllegalArgumentException("Invalid index");
 
         return this.elements[index];
     }
@@ -63,6 +58,32 @@ public class Vector {
         }
 
         return -1;
+    }
+
+    public void remove(int index) {
+
+        if (getSize() == 0) throw new RuntimeException("Empty vector");
+        if (index < 0 || index >= getSize()) throw new IllegalArgumentException("Invalid index");
+
+        for (int i = index; i < getSize()-1; i++) {
+            this.elements[i] = this.elements[i+1];
+        }
+        this.size--;
+    }
+
+    public void remove(String element) {
+
+        if (getSize() == 0) throw new RuntimeException("Empty vector");
+
+        int index = this.find(element);
+        if (index == -1) throw new IllegalArgumentException("Elemento não encontrado");
+
+        if (index < 0 || index >= getSize()) throw new IllegalArgumentException("Invalid index");
+
+        for (int i = index; i < getSize()-1; i++) {
+            this.elements[i] = this.elements[i+1];
+        }
+        this.size--;
     }
 
 
