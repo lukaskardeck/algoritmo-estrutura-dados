@@ -14,7 +14,7 @@ public class Vector {
     }
 
     // Adiciona um elemento no final da estrutura
-    public void addToEnd(String element) {
+    public void add(String element) {
         if (getSize() < this.capacity) {
             this.elements[getSize()] = element;
             this.size++;
@@ -24,7 +24,30 @@ public class Vector {
         }
     }
 
-    // Retorna um elmento pelo seu índice na estrutura
+    // Adiciona um elemento na posição indicada. Válido apenas para indices ja ocupados ou o primeiro indice após a ultima posição ocupada
+    public void add(String element, int index) {
+        if (getSize() < this.capacity) {
+
+            if (index > getSize() || index < 0) {
+                throw new RuntimeException("Invalid index");
+            }
+
+            if (index < getSize()) {
+                for (int i = getSize(); i > index; i--) {
+                    this.elements[i] = this.elements[i-1];
+                }
+                this.elements[index] = element;
+            }
+
+            this.elements[index] = element;
+            this.size++;
+            return;
+        }
+
+        throw new RuntimeException("Full vector");
+    }
+
+    // Retorna um elemento pelo seu índice na estrutura
     public String getByIndex(int index) {
         if (index < 0 || index >= getSize()) {
             throw new IllegalArgumentException("Invalid index");
@@ -41,6 +64,7 @@ public class Vector {
 
         return -1;
     }
+
 
     // Retorna a quantidade de elementos presentes na estrutura
     public int getSize() {
