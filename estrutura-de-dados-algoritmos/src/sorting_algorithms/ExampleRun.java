@@ -14,7 +14,7 @@ public class ExampleRun {
         BubbleSort.bubbleSort(nums);
         InsertionSort.insertionSort(nums2);
 
-        printArray(nums);
+        printArray(nums2);
 
 
     }
