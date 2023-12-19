@@ -15,10 +15,7 @@ public class Main {
 
         System.out.println(vetor);
         System.out.println(vetor.getSize());
-
-        vetor.remove("Elemento 6");
-        System.out.println(vetor);
-        System.out.println(vetor.getSize());
+        System.out.println(vetor.contains("Elemento 1"));
 
     }
 }

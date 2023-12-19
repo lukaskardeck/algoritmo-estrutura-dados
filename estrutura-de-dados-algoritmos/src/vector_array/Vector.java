@@ -60,6 +60,14 @@ public class Vector {
         return -1;
     }
 
+    // Retorna true se o array contém um dado elemento. Se não, retorna false.
+    public boolean contains(String element) {
+        if (find(element) > -1) {
+            return true;
+        }
+        return false;
+    }
+
     public void remove(int index) {
 
         if (getSize() == 0) throw new RuntimeException("Empty vector");
