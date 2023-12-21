@@ -14,5 +14,14 @@ def somar_num_recursivo(lista):
 
 
 
-print(somar_num_loop([1, 2, 3, 4, 5]))
-print(somar_num_recursivo([1, 2, 3, 4,5]))
+# outra opção para somar elementos de uma lista recursivamente
+def somar_num_recursivo2(lista):
+    if len(lista) == 0:
+        return 0
+    return lista[0] + somar_num_recursivo2(lista[1:])
+
+
+
+#print(somar_num_loop([1, 2, 3, 4, 5]))
+#print(somar_num_recursivo([1, 2, 3, 4, 5]))
+print(somar_num_recursivo2([1, 2, 3, 4, 5]))
