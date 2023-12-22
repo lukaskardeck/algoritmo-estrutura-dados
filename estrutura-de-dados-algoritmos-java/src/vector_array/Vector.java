@@ -94,6 +94,14 @@ public class Vector {
         this.size--;
     }
 
+    public int lastIndexOf(String e) {
+        for (int i = getSize()-1; i >= 0; i--) {
+            if (this.elements[i].equals(e)) {
+                return i;
+            }
+        }
+        return -1;
+    }
 
     // Retorna a quantidade de elementos presentes na estrutura
     public int getSize() {
