@@ -19,4 +19,4 @@ def quicksort(array):
 
 
 
-print(quicksort([10, 5, 2, 3, 11, 4, 4, 25]))
+print(quicksort([2, 1]))
